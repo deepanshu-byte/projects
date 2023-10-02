@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .file-upload {
+      border: 2px dashed #ccc;
+      padding: 20px;
+      cursor: pointer;
+    }
+    .file-upload:hover {
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>CSV Importer</h2>
+
+    <!-- Drag and Drop Area for Uploading CSV -->
+    <div id="csvUploadForm" class="file-upload">
+      <input type="file" id="csvInput" accept=".csv" style="display: none;">
+      <p>Drag and drop a CSV file here or click to select a file.</p>
+    </div>
+
+    <!-- Submit Button -->
+    <button id="importButton">Import CSV</button>
+  </div>
+
+  <script>
+    document.getElementById('importButton').addEventListener('click', function() {
+      // Get the uploaded CSV file
+      var csvFile = document.getElementById('csvInput').files[0];
+      if (csvFile) {
+        var reader = new FileReader();
+        reader.onload = function(event) {
+          google.script.run.withSuccessHandler(console.log).importCSVData(event.target.result);
+        };
+        reader.readAsText(csvFile);
+      } else {
+        alert('Please select a CSV file to import.');
+      }
+    });
+
+    // Add drag-and-drop functionality
+    var dragDropArea = document.getElementById('csvUploadForm');
+    dragDropArea.addEventListener('dragover', function(event) {
+      event.preventDefault();
+      dragDropArea.style.backgroundColor = '#f9f9f9';
+    });
+
+    dragDropArea.addEventListener('dragleave', function() {
+      dragDropArea.style.backgroundColor = 'Blue';
+    });
+
+    dragDropArea.addEventListener('drop', function(event) {
+      event.preventDefault();
+      dragDropArea.style.backgroundColor = 'red';
+
+      var droppedFile = event.dataTransfer.files[0];
+      document.getElementById('csvInput').files = event.dataTransfer.files;
+
+      if (droppedFile) {
+        var reader = new FileReader();
+        reader.onload = function(event) {
+          google.script.run.withSuccessHandler(console.log).importCSVData(event.target.result);
+        };
+        reader.readAsText(droppedFile);
+      }
+    });
+  </script>
+</body>
+</html>
