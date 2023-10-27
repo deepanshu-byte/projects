@@ -5,19 +5,29 @@ function openSidebar() {
   SpreadsheetApp.getUi().showSidebar(htmlOutput);
 }
 
-function importCSVData(csvData) {
+function importCSVData(csvData, targetSheetName) {
   try {
-    var targetSheetName = "Imported Data"; // Specify your target sheet name
-
     // Implement CSV parsing and import logic here
     var parsedData = parseCSV(csvData);
-    
+
     writeToSheet(parsedData, targetSheetName);
 
     return "CSV data imported successfully.";
   } catch (error) {
     return "Error: " + error.toString();
   }
+}
+
+function importLargeCSVData(csvData) {
+  var reader = new StreamReader(csvData);
+  var line;
+  var parsedData = [];
+  while ((line = reader.readLine()) !== null) {
+    parsedData.push(line.split(','));
+  }
+
+  // Import the parsed data into Google Sheets
+  writeToSheet(parsedData, "Imported Data"); // You can specify the target sheet name here
 }
 
 // Function to parse CSV data
@@ -30,7 +40,6 @@ function parseCSV(csvData) {
   return parsedData;
 }
 
-// Function to write data to a Google Sheet
 function writeToSheet(data, sheetName) {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   var sheet = ss.getSheetByName(sheetName);
