@@ -19,51 +19,136 @@
     .file-upload:hover {
       background-color: #f9f9f9;
     }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      border: 1px solid black;
+      padding: 5px;
+    }
+
+    select {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: blue;
+      color: white;
+    }
+    
   </style>
 </head>
 <body>
-  <div class="container">
-    <h2>CSV Importer</h2>
+  <table>
+  <thead>
+    <tr>
+      <th>Checkbox</th>
+      <th>Data</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><input type="checkbox" checked></td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" checked></td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" checked></td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+<select id="sheetSelect">
+  <option value="">Select a sheet</option>
+  <option value="Sheet1">Sheet1</option>
+  <option value="Sheet2">Sheet2</option>
+  <option value="Sheet3">Sheet3</option>
+</select>
 
-    <!-- Drag and Drop Area for Uploading CSV -->
-    <div id="csvUploadForm" class="file-upload">
-      <input type="file" id="csvInput" accept=".csv" style="display: none;">
-      <p>Drag and drop a CSV file here or click to select a file.</p>
-    </div>
+<div class="container">
+  <h2>CSV Importer</h2>
 
-    <!-- Submit Button -->
-    <button id="importButton">Import CSV</button>
+  <!-- Drag and Drop Area for Uploading CSV -->
+  <div id="csvUploadForm" class="file-upload">
+    <input type="file" id="csvInput" accept=".csv" style="display: none;">
+    <p>Drag and drop a CSV file here or click to select a file.</p>
   </div>
+
+  <!-- Submit Button -->
+  <button id="importButton">Import CSV</button>
+</div>
+
 
   <script>
     document.getElementById('importButton').addEventListener('click', function() {
-      // Get the uploaded CSV file
-      var csvFile = document.getElementById('csvInput').files[0];
-      if (csvFile) {
-        var reader = new FileReader();
-        reader.onload = function(event) {
-          google.script.run.withSuccessHandler(console.log).importCSVData(event.target.result);
-        };
-        reader.readAsText(csvFile);
-      } else {
-        alert('Please select a CSV file to import.');
-      }
-    });
+    // Get the uploaded CSV file
+    var csvFile = document.getElementById('csvInput').files[0];
+    var selectedSheet = document.getElementById('sheetSelect').value; // Get the selected sheet
 
-    // Add drag-and-drop functionality
+    if (csvFile && selectedSheet) {
+      var reader = new FileReader();
+      reader.onload = function(event) {
+        google.script.run.importCSVData(event.target.result, selectedSheet); // Pass the selected sheet name
+      };
+      reader.readAsText(csvFile);
+    } else {
+      alert('Please select both a CSV file and a target sheet to import the data to.');
+    }
+  });
+    var checkboxes = document.getElementsByClassName('row-checkbox');
+
+  for (var i = 0; i < checkboxes.length; i++) {
+    checkboxes[i].addEventListener('change', function() {
+      showHideRows();
+    });
+  }
+
+  function showHideRows() {
+    var selectedRows = [];
+    for (var i = 0; i < checkboxes.length; i++) {
+      if (checkboxes[i].checked) {
+        selectedRows.push(i + 1); // Rows are 1-indexed
+      }
+    }
+
+    var table = document.querySelector('table');
+    var rows = table.getElementsByTagName('tr');
+
+    for (var i = 0; i < rows.length; i++) {
+      rows[i].style.display = 'table-row'; // Show all rows by default
+    }
+
+    if (selectedRows.length > 0) {
+      for (var i = 0; i < rows.length; i++) {
+        if (selectedRows.indexOf(i + 1) === -1) {
+          rows[i].style.display = 'none'; // Hide rows that are not selected
+        }
+      }
+    }
+  }
+    // Add drag-and-drop functionality (rest of your drag-and-drop code)
     var dragDropArea = document.getElementById('csvUploadForm');
     dragDropArea.addEventListener('dragover', function(event) {
       event.preventDefault();
       dragDropArea.style.backgroundColor = '#f9f9f9';
     });
 
-    dragDropArea.addEventListener('dragleave', function() {
-      dragDropArea.style.backgroundColor = 'Blue';
+    dragDropArea.addEventListener('dragleave', function(event) {
+    event.preventDefault();
+    dragDropArea.style.backgroundColor = '#556DC8 ';
     });
 
     dragDropArea.addEventListener('drop', function(event) {
       event.preventDefault();
-      dragDropArea.style.backgroundColor = 'red';
+      dragDropArea.style.backgroundColor = ' #E68E36';
 
       var droppedFile = event.dataTransfer.files[0];
       document.getElementById('csvInput').files = event.dataTransfer.files;
@@ -71,7 +156,7 @@
       if (droppedFile) {
         var reader = new FileReader();
         reader.onload = function(event) {
-          google.script.run.withSuccessHandler(console.log).importCSVData(event.target.result);
+          google.script.run.withSuccessHandler(console.log).importCSVData([], event.target.result);
         };
         reader.readAsText(droppedFile);
       }
