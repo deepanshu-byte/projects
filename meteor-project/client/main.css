@@ -1,0 +1,82 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+module.exports = {
+    plugins: [
+      require('tailwindcss'),
+      require('autoprefixer'),
+      // ...other PostCSS plugins if necessary
+    ],
+  };
+<form class="space-y-4">
+  <input class="w-full p-2 border rounded" type="email" placeholder="Email" />
+  <input class="w-full p-2 border rounded" type="password" placeholder="Password" />
+  <button class="w-full bg-blue-500 text-white p-2 rounded" type="submit">Register</button>
+</form>
+<div class="flex flex-col items-center">
+  <button class="bg-green-500 text-white p-2 rounded my-2">Admin</button>
+  <button class="bg-yellow-500 text-white p-2 rounded my-2">Borrower</button>
+  <button class="bg-red-500 text-white p-2 rounded my-2">Lender</button>
+</div>
+<!-- Loan Request Form -->
+<form class="space-y-4">
+  <input class="w-full p-2 border rounded" type="number" placeholder="Loan Amount" />
+  <button class="w-full bg-blue-500 text-white p-2 rounded" type="submit">Request Loan</button>
+</form>
+
+<!-- Past Loans List -->
+<ul class="divide-y divide-gray-200">
+  <!-- Loop through loans and create list items -->
+  <li class="p-4">Loan #1 - $1000 - Pending</li>
+  <!-- More list items -->
+</ul>
+<!-- Loan Request Form -->
+<form class="space-y-4">
+  <input class="w-full p-2 border rounded" type="number" placeholder="Loan Amount" />
+  <button class="w-full bg-blue-500 text-white p-2 rounded" type="submit">Request Loan</button>
+</form>
+
+<!-- Past Loans List -->
+<ul class="divide-y divide-gray-200">
+  <!-- Loop through loans and create list items -->
+  <li class="p-4">Loan #1 - $1000 - Pending</li>
+  <!-- More list items -->
+</ul>
+<!-- Loan Confirmation -->
+<button class="bg-green-500 text-white p-2 rounded">Confirm Payment</button>
+
+<!-- Payment History -->
+<ul class="divide-y divide-gray-200">
+  <!-- Loop through payments and create list items -->
+  <li class="p-4">Payment #1 - $500 - Confirmed</li>
+  <!-- More list items -->
+</ul>
+<div class="p-4 bg-white shadow rounded-lg">
+  <!-- Status updates will be dynamically inserted here -->
+  <p class="text-sm text-gray-600">Loan #1 - Status: Approved</p>
+  <!-- More status updates -->
+</div>
+<div class="overflow-x-auto">
+  <table class="min-w-full divide-y divide-gray-200">
+    <thead class="bg-gray-50">
+      <tr>
+        <th>Transaction ID</th>
+        <th>User</th>
+        <th>Amount</th>
+        <th>Status</th>
+        <!-- More headers -->
+      </tr>
+    </thead>
+    <tbody class="bg-white divide-y divide-gray-200">
+      <!-- Loop through transactions and create rows -->
+      <tr>
+        <td>#1234</td>
+        <td>User A</td>
+        <td>$1000</td>
+        <td>Completed</td>
+        <!-- More cells -->
+      </tr>
+      <!-- More rows -->
+    </tbody>
+  </table>
+</div>
