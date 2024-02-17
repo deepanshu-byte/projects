@@ -1,0 +1,277 @@
+%-------------------------
+% Resume in Latex
+% Author : Deepanshu Pandey
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\usepackage{graphicx}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+
+\RequirePackage{tikz}
+\RequirePackage{xcolor}
+\RequirePackage{fontawesome}
+\usepackage{tikz}
+\usetikzlibrary{svg.path}
+
+
+\definecolor{cvblue}{HTML}{0E5484}
+\definecolor{black}{HTML}{130810}
+\definecolor{darkcolor}{HTML}{0F4539}
+\definecolor{cvgreen}{HTML}{3BD80D}
+\definecolor{taggreen}{HTML}{00E278}
+\definecolor{SlateGrey}{HTML}{2E2E2E}
+\definecolor{LightGrey}{HTML}{666666}
+\colorlet{name}{black}
+\colorlet{tagline}{darkcolor}
+\colorlet{heading}{darkcolor}
+\colorlet{headingrule}{cvblue}
+\colorlet{accent}{darkcolor}
+\colorlet{emphasis}{SlateGrey}
+\colorlet{body}{LightGrey}
+
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+% \pagestyle{fancy}
+% \fancyhf{}  % clear all header and footer fields
+% \fancyfoot{}
+% \renewcommand{\headrulewidth}{0pt}
+% \renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\classesList}[4]{
+    \item\small{
+        {#1 #2 #3 #4 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{\large#1} & \textbf{\small #2} \\
+      \textit{\large#3} & \textit{\small #4} \\
+      
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+
+\newcommand\sbullet[1][.5]{\mathbin{\vcenter{\hbox{\scalebox{#1}{$\bullet$}}}}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+
+
+\begin{center}
+    {\Huge \scshape Deepanshu Pandey} \\ \vspace{1pt}
+    Rudrapur,Uttarakhand \\ \vspace{1pt}
+    \small \href{tel:+xxxxxxxxxxxx}{ \raisebox{-0.1\height}\faPhone\ \underline{+91-7078696375} ~} \href{mailto:deepanshupandey.pc@gmail.com}{\raisebox{-0.2\height}\faEnvelope\  \underline{deepanshupandey.pc@gmail.com}} ~ 
+    \href{https://www.linkedin.com/in/deepanshupandey-/}{\raisebox{-0.2\height}\faLinkedinSquare\ \underline{LinkedIn}}  ~
+    \href{https://github.com/deepanshu-byte}{\raisebox{-0.2\height}\faGithub\ \underline{Github}} ~
+    \href{https://leetcode.com/deepanshu_pandey/}{\raisebox{-0.2\height}\faCode\ \underline{Leetcode}}
+    \vspace{-8pt}
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{EDUCATION}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Vellore Institute of Technology}{Sept 2020 -- Aug 2024}
+      {Bachelor of Technology - \textbf{CGPA} - \textbf{8.56}}{Bhopal, India}
+  \resumeSubHeadingListEnd
+  
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Jaycees Public School}{Mar 2019 -- July 2020 }
+      {Senior Secondary - PCM  - \textbf{Percentage} - \textbf{83.8\%}}{Rudrapur, Uttarakhand}
+  \resumeSubHeadingListEnd
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Jaycees Public School}{Mar 2017 -- May 2018 }
+      {Secondary - Science  - \textbf{Percentage} - \textbf{86.4\%}}{Rudrapur, Uttarakhand}
+  \resumeSubHeadingListEnd
+%------RELEVANT COURSEWORK-------
+\section{COURSEWORK / SKILLS}
+    %\resumeSubHeadingListStart
+        \begin{multicols}{4}
+            \begin{itemize}[itemsep=-2pt, parsep=5pt]
+                \item Data Structures \& Algorithms
+                \item Operating Systems
+                \item Computer Network 
+                \item Database Management System (DBMS)
+                \item Devops
+                \item OOPS Concept
+                \item Web Development
+                \item Cloud Development
+            \end{itemize}
+        \end{multicols}
+        \vspace*{2.0\multicolsep}
+    %\resumeSubHeadingListEnd
+
+
+
+%-----------PROJECTS-----------
+\section{PROJECTS}
+    \vspace{-5pt}
+    \resumeSubHeadingListStart
+       \resumeProjectHeading
+          {\href{https://github.com/deepanshu-byte/projects/tree/main}{\textbf{\large{\underline{Data Morpher}}} \href{Project Link}{\raisebox{-0.1\height}\faExternalLink }} $|$ \large{\underline{Google AppScript, JavaScript}}}{Sept 2023}
+          \resumeItemListStart
+            \resumeItem{\normalsize{Optimized workflow by integrating Google App Script and Google Sheets with HTML,\textbf{reducing data processing time by 75\%}.}}
+
+            \resumeItem{\normalsize{Streamlined data selection process by integrating custom check boxes,\textbf{ resulting in a 40\% increase in data accuracy} and \textbf{reducing input errors by 75\%}.}}
+          \resumeItemListEnd 
+          \vspace{-13pt}
+          
+      \resumeProjectHeading
+          {\href{https://github.com/deepanshu-byte/unskilled_labour_job_portal}{\textbf{\large{\underline{Plain Jobs}}} \href{Project Link}{\raisebox{-0.1\height}\faExternalLink }} $|$ \large{\underline{Django, SQLite }}}{May 2023}
+          \resumeItemListStart
+            \resumeItem{\normalsize{Enhance the overall experience, making it 
+            \textbf{easier for users to navigate the hiring process}
+            .}}
+            \resumeItem{\normalsize{Achieve a \textbf{25\% increase in successful job placements} by improving the accuracy of matches.}}
+             \resumeItem{\normalsize{Streamline tools and processes for employers to \textbf{reduce the time-to-hire by 30\%} .}}
+          \resumeItemListEnd
+          \vspace{-13pt}
+          
+          \resumeProjectHeading
+          {\href{https://github.com/live-byte/UnderWater_Image_Enhancement}{\textbf{\large{\underline{AquaClarity}}} \href{Project Link}{\raisebox{-0.1\height}\faExternalLink }} $|$ \large{\underline{Python}}}{Dec 2022}
+          \resumeItemListStart
+          \resumeItem{\normalsize{Utilized Python tools to streamline the image processing pipeline, enhancing efficiency in handling a single underwater image.}}
+          \resumeItem{\normalsize{Achieved 
+          \textbf{ 60\% reduction in image processing time} by leveraging the capabilities of python libraries.}}
+          \resumeItem{\normalsize{Achieved a substantial\textbf{ 45\% increase in average image quality} , transforming uncleared images into visually enhanced and clearer representations.}}
+            
+          \resumeItemListEnd 
+    \resumeSubHeadingListEnd
+\vspace{-12pt}
+
+%
+
+
+%-----------PROGRAMMING SKILLS-----------
+\section{TECHNICAL SKILLS}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{\normalsize{Languages:}}{ \normalsize{Python, Java, C, C++, JavaScript, SQL, NoSQL, }} \\
+     \textbf{\normalsize{Developer Tools:}}{ \normalsize{VS Code, Android Studio, VirtualBox, Github, Vercil}} \\
+     \textbf{\normalsize{Technologies/Frameworks:}}{\normalsize{ Linux, GitHub, ReactJS, Redux, NodeJS}} \\
+    }}
+ \end{itemize}
+ \vspace{-15pt}
+
+
+%-----------INVOLVEMENT---------------
+\section{EXTRACURRICULAR}
+    \resumeSubHeadingListStart
+        \resumeSubheading{National Service Scheme \href{https://drive.google.com/file/d/1F-eUnOrZin_tyHqYirt_t-Z0__vjcmRQ/view?usp=sharing} }{Jan 2020 -- Dec 2023}{\underline{Coordinator}}{Bhopal}
+            \resumeItemListStart
+                \resumeItem{\normalsize{Organized awareness campaigns on \textbf{Feminine hygiene} and responsible \textbf{Plastic usage} in rural areas and schools.}}
+                \resumeItem{\normalsize{Coordinated \textbf{blood donation camps} in collaboration with various medical colleges and hospitals. }}
+            \resumeItemListEnd
+    \resumeSubHeadingListEnd
+ \vspace{-11pt}
+ 
+ %-----------CERTIFICATIONS---------------
+\section{CERTIFICATIONS}
+
+$\sbullet[.75] \hspace{0.1cm}$ {\href{https://www.credly.com/badges/dc8eee67-312f-49ae-a047-4af2525f76a5/public_url}{Microsoft Azure fundamentals}} \hspace{0.6cm}
+$\sbullet[.75] \hspace{0.1cm}$ {\href{https://www.credly.com/earner/earned/badge/1e77075c-5d1c-495f-91bb-88d51aadadc6}{Microsoft Azure AI Fundamentals}} \hspace{0.6 cm}
+$\sbullet[.75] \hspace{0.1cm}$ {\href{https://www.hackerrank.com/certificates/eddcf8a45c9d}{Java (Basic) Certification}} \hspace{0.6 cm}\\
+
+$\sbullet[.75] \hspace{0.1cm}${\href{https://drive.google.com/file/d/1ybKHwlwKULWFYWAcgobCxv4q2JkYjg-Q/view?usp=sharing}{Data Structures and Algorithm in C++}}\hspace{0.6cm}
+$\sbullet[.75] \hspace{0.2cm}${\href{https://www.credly.com/earner/earned/badge/d2e4e5d7-478e-4132-935a-d99d64b605ef} {Microsoft Security, Compliance, and Identity Fundamentals}}\hspace{0.6cm}
+\\
+
+$\sbullet[.75] \hspace{0.1cm}${\href{https://www.coursera.org/account/accomplishments/verify/J6Y3LE33PME6?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course}{The Bits and Bytes of Computer Networking}}\hspace{1cm}
+$\sbullet[.75] \hspace{0.1cm}${\href{https://www.credly.com/earner/earned/badge/af275507-02fa-40df-95aa-08ec062e9927}{A Beginner's Guide to Linux Kernel Development}} 
+
+
+
+\end{document}
